@@ -12,5 +12,5 @@ A discord selfbot with raiding and some extra fun commands
   
   I am not gonna be accountable for any kind of damage(Account ban and bs) that will done by it.
 
-<h1> **Very important** <h1>
+<h1> **Very important** </h1>
   I dont really want some dumb fams with 0 knowledge of dev to just copy and use it. So i did added and i will add some more funny commands to it that can cause a little damage or atleast do the minimum troll. Real fams with Good knowledge can remove it from code so yeh that's it  
