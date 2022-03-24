@@ -4,7 +4,7 @@ A discord selfbot with raiding and some extra fun commands
 
 
 <h1> Setting up Basic </h1>
-  Well this is it all you have to do is put your token in config.json "token" field.
+  Well that is it, all you have to do is put your token in config.json "token" field.
   
   ![image](https://user-images.githubusercontent.com/78467470/160002878-dd1df76f-f74f-4e9e-9672-e058097efac8.png)
 
