@@ -1,6 +1,8 @@
 # Sirius-Selfbot
 A discord selfbot with raiding and some extra fun commands
 ![image](https://user-images.githubusercontent.com/78467470/160005669-dcbd1324-205f-41f5-90c4-db3fb525d4e3.png)
+<h2> Better Help command </h2>
+![image](https://user-images.githubusercontent.com/78467470/160062412-51b2dea4-3d40-4a7a-bb59-a543222f44b7.png)
 
 
 <h1> Setting up Basic </h1>
