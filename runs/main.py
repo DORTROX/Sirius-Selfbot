@@ -79,7 +79,7 @@ class main(dortrox.Cog):
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
                 f.close()
-            await ctx.message.edit(content=f"**`On_ready Activity name  : {content}`**")
+            await ctx.message.edit(content=f"**`Prefix : {content}`**")
         except:
             pass
 
