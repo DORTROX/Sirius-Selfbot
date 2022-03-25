@@ -23,7 +23,7 @@ webhook_content = ogdata['webhook_content']
 Activity_name = ogdata['Activity_name']
 
 dortrox = commands.Bot(
-    command_prefix='>',
+    command_prefix=prefix,
     self_bot=True,
     help_command=None,  
                      )
@@ -93,7 +93,7 @@ async def on_command_error(ctx, error):
 
 @dortrox.event
 async def on_ready():
-    await dortrox.change_presence(activity=discord.Streaming(name=Activity_name, url="https://www.twitch.tv/dortrox"))  
+    await dortrox.change_presence(activity=discord.Streaming(name=Activity_name, url="https://www.twitch.tv/your channel name here"))  
     print(f"""
                                     
                                    ▄████████  ▄█     ▄████████  ▄█  ███    █▄     ▄████████ 
