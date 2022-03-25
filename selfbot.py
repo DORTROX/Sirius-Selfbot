@@ -9,6 +9,7 @@ global webhook_content
 global Activity_name
 global Help
 global main
+global prefix
 global nuke
 global fun
 
@@ -17,6 +18,7 @@ fObj = open('config.json',)
 ogdata = json.load(fObj)
 token = ogdata['token']
 webhook_name = ogdata['webhook_name']
+prefix = ogdata['prefix']
 webhook_content = ogdata['webhook_content']
 Activity_name = ogdata['Activity_name']
 
