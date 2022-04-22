@@ -1,16 +1,18 @@
 {
     "Activity_name": "DORTROX",
+    "ban": "True",
     "channel_json": {
         "name": "heil dortrox",
         "type": 0
     },
+    "delete": 10,
+    "prefix": ">",
     "role_json": {
         "name": "heil dortrox"
     },
-    "token": "Start using env dumbass unless you want to be smoked",
+    "token": "",
     "uagent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246",
-    "webhook_content": "@everyone Nuked by dortrox",
+    "webhook_content": "@everyone Nuked by AOS | Operation Pegasus | 60 days of trolling | https://www.youtube.com/channel/UC-n6dtFpFlJFL3UybRj0gzA | https://www.youtube.com/channel/UCCDXW2YCAJbRepHU6HJY1yA",
     "webhook_name": "Ruined By Dortrox",
-    "webhooks": "False",
-    "prefix": ">"
+    "webhooks": "False"
 }

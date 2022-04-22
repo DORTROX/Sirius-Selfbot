@@ -19,7 +19,7 @@ class activities(dortrox.Cog):
     async def play(self, ctx,*, content):
         try:
             await ctx.message.edit(content=f'`Playing: {content}`')
-            await self.dortrox.change_presence(activity=discord.Game(content))
+            await   self.dortrox.change_presence(activity=discord.Game(content))
         except Exception as e:
             print(f"{e}")
             await ctx.message.channel.send(f"""```py\n{e}```""")
@@ -33,11 +33,11 @@ class activities(dortrox.Cog):
             print(f"{e}")
             await ctx.message.channel.send(f"""```py\n{e}```""")
 
-    @dortrox.command()
+    @dortrox.command()  
     async def listen(self, ctx,*, content):
         try:
             await ctx.message.edit(content=f'`Listening: {content}`')
-            await self.dortrox.change_presence(type=discord.Activity.Type.listening, name = content)
+            await self.dortrox.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name = content))
         except Exception as e:
             print(f"{e}")
             await ctx.message.channel.send(f"""```py\n{e}```""")

@@ -13,9 +13,8 @@ class main(dortrox.Cog):
         try:
             async for message in ctx.message.channel.history(limit=t).filter(lambda x: x.author == self.dortrox.user).map(lambda x: x):
                 await message.delete()
-        except Exception as e:
-            print(f"{e}")
-            await ctx.message.channel.send(f"""```py\n{e}```""")
+        except:
+            pass
         
     @dortrox.command()
     async def ping(self, ctx):
@@ -27,33 +26,40 @@ class main(dortrox.Cog):
     @dortrox.command()
     async def webhook(self, ctx, message):
         if message.lower() == 'true':
-            try:
-                with open('config.json', 'r') as f:
-                    json_data = json.load(f)
-                    json_data['webhooks'] = "True"
-                    f.close()
-                with open('config.json', 'w') as f:
-                    f.write(json.dumps(json_data, indent = 4, sort_keys=True))
-                    f.close()
-                await ctx.message.edit(content="**`Webhooks: True`**")
-            except Exception as e:
-                print(e)
-                await ctx.message.channel.send(f"""```py\n{e}```""")
-
+            content = 'True'
         elif message.lower() == 'false':
-            try:
-                with open('config.json', 'r') as f:
-                    json_data = json.load(f)
-                    json_data['webhooks'] = "False"
-                    f.close()
-                with open('config.json', 'w') as f:
-                    f.write(json.dumps(json_data, indent = 4, sort_keys=True))
-                    f.close()
-                    await ctx.message.edit(content="**`Webhooks: False`**")
-            except Exception as e:
-                await ctx.message.channel.send(f"""```py\n{e}```""")
-        else:
-            pass
+            content = 'False'
+        try:
+            with open('config.json', 'r') as f:
+                json_data = json.load(f)
+                json_data['webhooks'] = content
+                f.close()
+            with open('config.json', 'w') as f:
+                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
+                f.close()
+            await ctx.message.edit(content=f"**`Webhooks: {content}`**")
+        except Exception as e:
+            print(e)
+            await ctx.message.channel.send(f"""```py\n{e}```""")
+
+    @dortrox.command()
+    async def sban(self, ctx, message):
+        if message.lower() == 'true':
+            content = 'True'
+        elif message.lower() == 'false':
+            content = 'False'
+        try:
+            with open('config.json', 'r') as f:
+                json_data = json.load(f)
+                json_data['ban'] = content
+                f.close()
+            with open('config.json', 'w') as f:
+                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
+                f.close()
+            await ctx.message.edit(content=f"**`Ban: {content}`**")
+        except Exception as e:
+            print(e)
+            await ctx.message.channel.send(f"""```py\n{e}```""")
 
     @dortrox.command()
     async def activity(self,ctx,*, content):
@@ -68,6 +74,7 @@ class main(dortrox.Cog):
             await ctx.message.edit(content=f"**`On_ready Activity name  : {content}`**")
         except:
             pass
+            
 
     @dortrox.command()
     async def prefix(self,ctx,*, content):
@@ -79,7 +86,7 @@ class main(dortrox.Cog):
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
                 f.close()
-            await ctx.message.edit(content=f"**`Prefix : {content}`**")
+            await ctx.message.edit(content=f"**`Prefix : {content} (Requires Restart)`**")
         except:
             pass
 
