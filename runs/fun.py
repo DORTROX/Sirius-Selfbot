@@ -65,6 +65,7 @@ class fun(dortrox.Cog):
 
     @dortrox.command()
     async def spam(self, ctx, amount=None, * ,message):
+        await ctx.message.delete()
         try:
             if amount==None:
                 await ctx.message.edit(content="Enter amount")
