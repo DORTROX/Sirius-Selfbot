@@ -12,7 +12,6 @@ role_json = ogdata['role_json']
 headers = {'User-Agent': uagent, 'Authorization': token }
 
 
-
 #The nuke beginning: 
 
 async def cd(channel):
