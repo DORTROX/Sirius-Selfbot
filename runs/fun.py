@@ -64,6 +64,17 @@ class fun(dortrox.Cog):
             print(f"{e}")
 
     @dortrox.command()
+    async def spam(self, ctx, amount=None, * ,message):
+        try:
+            if amount==None:
+                await ctx.message.edit(content="Enter amount")
+            else:
+                for i in range(int(amount)):
+                    await ctx.message.channel.send(message)
+        except Exception as e:
+            print(e)
+
+    @dortrox.command()
     async def otax(self,ctx):
         try:
             await ctx.message.delete()
