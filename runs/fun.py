@@ -59,7 +59,7 @@ class fun(dortrox.Cog):
                 await ctx.message.edit(content="I love")
                 await ctx.message.edit(content="I love you")
                 await ctx.message.edit(content="I love your pussy")
-                await ctx.message.edit(content="<3")
+                await ctx.message.edit(content="<33")
         except Exception as e:
             print(f"{e}")
 

