@@ -13,39 +13,38 @@ class fun(dortrox.Cog):
         
     @dortrox.command()
     async def danc(self, ctx):
-        await ctx.message.delete()
         danc = 'https://images-ext-2.discordapp.net/external/poPP7Gv08VAxIs_v2xQHxcOme1vobWjPZUKg2AaXI4A/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/840794659206987797.gif'
-        await ctx.send(danc)
+        await ctx.message.edit(content=danc)
 
     @dortrox.command()
     async def hah(self, ctx):
         await ctx.message.delete()
         hah = 'https://images-ext-1.discordapp.net/external/9bXisJjSpCgJ0h7JqkuZQvwhPAoR1T4GvppqRRvF7Vs/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/767782981073895455.png'
-        await ctx.send(hah)
+        await ctx.message.edit(content=hah)
 
     @dortrox.command()
     async def lonely(self, ctx):
         await ctx.message.delete()
         lonely = 'https://images-ext-1.discordapp.net/external/VhJSrbqpdITpmAJj9uTM2ZhkEYv2r7d1Kx6m6uQRyCY/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/859049848413618186.gif'
-        await ctx.send(lonely)
+        await ctx.message.edit(content=lonely)
 
     @dortrox.command()
     async def ahh(self, ctx):
         await ctx.message.delete()
         ahh = 'https://images-ext-2.discordapp.net/external/Z_w6bKFL5Wxop1bfhTED-ozmy-t3TRwN1CMvg32KkuA/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/755088073884434494.gif'
-        await ctx.send(ahh)
+        await ctx.message.edit(content=ahh)
 
     @dortrox.command()
     async def bbye(self, ctx):
         await ctx.message.delete()
         bbye = 'https://images-ext-1.discordapp.net/external/FbRZdVStEO91EdORLk2M8ZE4o_qhiWVDloqZUH3noK4/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/712388967902740490.gif'
-        await ctx.send(bbye)
+        await ctx.message.edit(content=bbye)
 
     @dortrox.command()
     async def twerk(self, ctx):
         await ctx.message.delete()
         twerk = 'https://images-ext-2.discordapp.net/external/t-YyTGVICEGuAptTeteVLVIPorNmDLizca1GWPKfT1w/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/854605974974627881.gif'
-        await ctx.send(twerk)
+        await ctx.message.edit(content=twerk)
 
     @dortrox.command()
     async def nani(self, ctx):
@@ -53,11 +52,11 @@ class fun(dortrox.Cog):
         nani = 'https://images-ext-1.discordapp.net/external/eUUVCGPbTUmRu_WD7SsTuNUnzDvPZ75sS-7cx5xi5Qg/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/682737787685961832.png'
         nani1 = 'https://images-ext-1.discordapp.net/external/5OVbqNSz2eHVzRecO5cT0T2sb5nrG9OLIR8FLp6qxr8/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/683356400726179876.png'
         nani2 = 'https://images-ext-2.discordapp.net/external/ffQBCA7pQ-NxOKzzMWuLadm8vTtU6blh8LpPz-tHK0M/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/683356144571383810.png'
-        await ctx.send(nani)
+        await ctx.message.edit(content=nani)
         time.sleep(0.5)
-        await ctx.send(nani1)
+        await ctx.message.edit(content=nani1)
         time.sleep(0.5)
-        await ctx.send(nani2)
+        await ctx.message.edit(content=nani2)
 
     @dortrox.command()
     async def love(self, ctx):
