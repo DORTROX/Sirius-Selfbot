@@ -1,7 +1,7 @@
 import asyncio, time, json
 from aiohttp import *
 from discord.ext import commands as dortrox
-fObj = open('config.json',)
+fObj = open('config.json')
 ogdata = json.load(fObj)
 token = ogdata['token']
 uagent = ogdata['uagent']
