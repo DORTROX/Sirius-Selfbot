@@ -1,4 +1,5 @@
 import discord, os, json,requests
+from os import system,name
 from discord.ext import commands
 from discord.ext.commands import CommandNotFound
 fObj = open('config.json')
@@ -32,7 +33,6 @@ def tokus(tokn):
 
 token = tokus(tokenn)
 
-# Prefix Realtime
 
 async def pre(dortrox, message):
   fObj = open('config.json')
@@ -104,8 +104,10 @@ async def on_command_error(ctx, error):
 
 @dortrox.event
 async def on_ready():
-    os.system("cls")
-    await dortrox.change_presence(activity=discord.Streaming(name=ogdata['Activity_name'], url="https://www.twitch.tv/dortrox"))
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
     print(f"""
                                     
                                    ▄████████  ▄█     ▄████████  ▄█  ███    █▄     ▄████████ 
