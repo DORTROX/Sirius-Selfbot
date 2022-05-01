@@ -69,7 +69,7 @@ dortrox = commands.Bot(
                      )
 
 Help = ["NUKE COMMANDS", "FUN COMMANDS", "ACTIVITIES COMMANDS", "MAIN COMMANDS"]
-Main = [f"purge: Delete messages from a channel  |  purge <amount here>", f"ping: Shows lantency  |  purge", f"webhook: Turn webhooks on & off  |  webhook <true/false>", f"activity: changes activity message  |  activity <message here>", f"nwebhook: Changes webhooks name  |  nwebhook <name here>", f"cwebhook: Changes webhooks content  |  nwebhook <content here>", f"rn : Changes roles name  |  rn <name here>", f"cn: Changes channels name  |  cn <name here>", f"prefix: Changes prefix  |  prefix <New prefix here>" ]
+Main = [f"purge: Delete messages from a channel  |  purge <amount here>", f"ping: Shows lantency  |  ping", f"hooks: Turn webhooks on & off  |  hooks", f"activityN: changes activity message  |  activity <message here>", f"hooksN: Changes webhooks name  |  hooksN <name here>", f"hooksC: Changes webhooks content  |  hooksC <content here>", f"roleN : Changes roles name  |  roleN <name here>", f"channelN: Changes channels name  |  channelN <name here>", f"prefix: Changes prefix  |  prefix <New prefix here>", f"guildN: Changes guild name  |  guildN <Name here>", f"ban: Turn ban On or Off  |  ban" ]
 Nuke = [f"nuke: Blow up the server for you  |  nuke" ]
 Activites = [f"stream: Change to streaming message and activity  |  stream <messsage here>", f"listen: Change to listening message and activity  |  listen <messsage here>", f"playing: Change to playing message and activity listen <message here>", f"watch: Change to watching message and activity  |  watch <message here>"]
 Fun = f"""
