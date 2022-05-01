@@ -1,4 +1,4 @@
-import discord, json
+import json
 from discord.ext import commands as dortrox
 global json_data
 
@@ -24,34 +24,30 @@ class main(dortrox.Cog):
             print(f"{e}")
 
     @dortrox.command()
-    async def webhook(self, ctx, message):
-        if message.lower() == 'true':
-            content = 'True'
-        elif message.lower() == 'false':
-            content = 'False'
+    async def prefix(self, ctx, content):
+        global dortrox
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                json_data['webhooks'] = content
+                json_data['prefix'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
                 f.close()
-            await ctx.message.edit(content=f"**`Webhooks: {content}`**")
+            await ctx.message.edit(content=f"**`Prefix : {content}`**")
         except Exception as e:
             print(e)
-            await ctx.message.channel.send(f"""```py\n{e}```""")
 
     @dortrox.command()
-    async def sban(self, ctx, message):
-        if message.lower() == 'true':
-            content = 'True'
-        elif message.lower() == 'false':
-            content = 'False'
+    async def ban(self, ctx):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                json_data['ban'] = content
+                if json_data['guild']['ban'] == 'True':
+                    content = 'False'
+                elif json_data['guild']['ban'] == 'False':
+                    content = 'True'
+                json_data['guild']['ban'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
@@ -62,7 +58,7 @@ class main(dortrox.Cog):
             await ctx.message.channel.send(f"""```py\n{e}```""")
 
     @dortrox.command()
-    async def activity(self,ctx,*, content):
+    async def activityN(self,ctx,*, content):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
@@ -74,57 +70,13 @@ class main(dortrox.Cog):
             await ctx.message.edit(content=f"**`On_ready Activity name  : {content}`**")
         except:
             pass
-            
 
     @dortrox.command()
-    async def prefix(self,ctx,*, content):
+    async def roleN(self,ctx,*, content):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                json_data['prefix'] = content
-                f.close()
-            with open('config.json', 'w') as f:
-                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
-                f.close()
-            await ctx.message.edit(content=f"**`Prefix : {content} (Requires Restart)`**")
-        except:
-            pass
-
-    @dortrox.command()
-    async def nwebhook(self,ctx,*, content):
-        try:
-            with open('config.json', 'r') as f:
-                json_data = json.load(f)
-                json_data['webhook_name'] = content
-                f.close()
-            with open('config.json', 'w') as f:
-                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
-                f.close()
-            await ctx.message.edit(content=f"**`Webhooks Name : {content}`**")
-        except Exception as e:
-            print(f'{e}')
-            
-
-    @dortrox.command()
-    async def cwebhook(self,ctx,*, content):
-        try:
-            with open('config.json', 'r') as f:
-                json_data = json.load(f)
-                json_data['webhook_content'] = content
-                f.close()
-            with open('config.json', 'w') as f:
-                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
-                f.close()
-            await ctx.message.edit(content=f"**`Webhook Content : {content}`**")
-        except:
-            pass
-
-    @dortrox.command()
-    async def rn(self,ctx,*, content):
-        try:
-            with open('config.json', 'r') as f:
-                json_data = json.load(f)
-                json_data['role_json']['name'] = content
+                json_data['guild']['role_json']['name'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
@@ -134,16 +86,78 @@ class main(dortrox.Cog):
             pass
 
     @dortrox.command()
-    async def cn(self,ctx,*, content):
+    async def channelN(self,ctx,*, content):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                json_data['channel_json']['name'] = content
+                json_data['guild']['channel_json']['name'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
                 f.close()
             await ctx.message.edit(content=f"**`Channel Name : {content}`**")
+        except:
+            pass
+
+    @dortrox.command()
+    async def guildN(self, ctx,*, content):
+        try:
+            with open('config.json', 'r') as f:
+                json_data = json.load(f)
+                json_data['guild']['guildName'] = content
+                f.close()
+            with open('config.json', 'w') as f:
+                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
+                f.close()
+            await ctx.message.edit(content=f"**`Guild Name : {content}`**")
+        except:
+            pass
+
+
+    @dortrox.command()
+    async def hooks(self, ctx):
+        try:
+            with open('config.json', 'r') as f:
+                json_data = json.load(f)
+                if json_data['webhooks']['webhook'] == 'True':
+                    content = 'False'
+                elif json_data['webhooks']['webhook'] == 'False':
+                    content = 'True'
+                json_data['webhooks']['webhook'] = content
+                f.close()
+            with open('config.json', 'w') as f:
+                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
+                f.close()
+            await ctx.message.edit(content=f"**`Webhooks: {content}`**")
+        except Exception as e:
+            print(e)
+            await ctx.message.channel.send(f"""```py\n{e}```""")
+
+    @dortrox.command()
+    async def hooksN(self,ctx,*, content):
+        try:
+            with open('config.json', 'r') as f:
+                json_data = json.load(f)
+                json_data['webhooks']['webhook_name'] = content
+                f.close()
+            with open('config.json', 'w') as f:
+                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
+                f.close()
+            await ctx.message.edit(content=f"**`Webhooks Name : {content}`**")
+        except Exception as e:
+            print(f'{e}')
+
+    @dortrox.command()
+    async def hooksC(self,ctx,*, content):
+        try:
+            with open('config.json', 'r') as f:
+                json_data = json.load(f)
+                json_data['webhooks']['webhook_content'] = content
+                f.close()
+            with open('config.json', 'w') as f:
+                f.write(json.dumps(json_data, indent = 4, sort_keys=True))
+                f.close()
+            await ctx.message.edit(content=f"**`Webhook Content : {content}`**")
         except:
             pass
             

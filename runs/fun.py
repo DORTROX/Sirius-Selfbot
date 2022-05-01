@@ -1,4 +1,4 @@
-import discord, time, random, json
+import time, random, json
 from discord.ext import commands as dortrox
 fObj = open('config.json',)
 ogdata = json.load(fObj)
