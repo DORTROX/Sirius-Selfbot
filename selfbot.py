@@ -1,8 +1,6 @@
 import discord, os, json,requests
-from aiohttp import *
 from discord.ext import commands
 from discord.ext.commands import CommandNotFound
-from requests import head
 fObj = open('config.json')
 ogdata = json.load(fObj)
 deletes = ogdata['delete']
