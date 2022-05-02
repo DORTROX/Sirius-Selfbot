@@ -1,3 +1,4 @@
+from importlib.resources import contents
 import time, random, json
 from discord.ext import commands as dortrox
 fObj = open('config.json',)
@@ -10,7 +11,122 @@ passwords = ["imretarded","im retarded","pussylicker","i love cock","sesso","gay
 class fun(dortrox.Cog):
     def __init__(self, dortrox):
         self.dortrox = dortrox
-        
+
+    @dortrox.command()
+    async def hastare(self, ctx):
+        hastare = 'https://images-ext-1.discordapp.net/external/kCK_VAiikYByqdfB6r7CBuZqeUL0GiashcghJpbWvkk/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/682489539314581514.png'
+        await ctx.message.edit(content=hastare)
+
+    @dortrox.command()
+    async def hjump(self, ctx):
+        hjump = 'https://images-ext-2.discordapp.net/external/z8Lqyfp6OWVcWIL6wxz6Do3ePELO5aLle6iGl5h8nX8/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/682487798992732200.gif'
+        await ctx.message.edit(content=hjump)
+
+    @dortrox.command()
+    async def okand(self,ctx):
+        okand = "https://images-ext-2.discordapp.net/external/mtTj42sKRXTDkBLhd3rYBUt9LvjP5r2lt9-rpko0jb4/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/888898874146717826.gif"
+        await ctx.message.edit(content=okand)
+    
+    @dortrox.command()
+    async def dedb(self,ctx):
+        dedb = "https://images-ext-2.discordapp.net/external/CEWj_gySxWgnJR8ExKq6kWN4-a7o5hNLOEE3eU5GcLs/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/790366901191573504.gif"
+        await ctx.message.edit(content=dedb)
+
+    @dortrox.command()
+    async def load(self,ctx):
+        load = "https://images-ext-1.discordapp.net/external/ZzqT79WSuxXYVEERkOkLMfZkTd_OC9YvOyIZ5a6ALgU/%3Fv%3D1%26size%3D64/https/cdn.discordapp.com/emojis/755152253278617753.gif"
+        await ctx.message.edit(content=load)
+    
+    @dortrox.command()
+    async def wee(self,ctx):
+        wee = "https://images-ext-1.discordapp.net/external/sH1t_vJR1SNBmPtyRT84WUZgtuCxo7vfGEQ2MJqCKXY/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/811153850261438474.gif"
+        await ctx.message.edit(content=wee)
+
+    @dortrox.command()
+    async def huh(self,ctx):
+        huh = "https://images-ext-2.discordapp.net/external/YH_feE_2YMBcpWukOwCwhqPN5kUQJeWsd3e0xfsGzYg/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/887888040243101757.gif"
+        await ctx.message.edit(content=huh)
+
+    @dortrox.command()
+    async def catv(self,ctx):
+        catv= "https://images-ext-1.discordapp.net/external/YufG58oa3oBkL1W9sf_ylL3Zh2K351JBbRMKwrPQQvA/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/747628349513531453.gif"
+        await ctx.message.edit(content=catv)
+
+    @dortrox.command()
+    async def stfu(self,ctx):
+        stfu= "https://images-ext-2.discordapp.net/external/hPEHdqe3YtQGzn4g7ipietCCgqhibQK9ygJuDVecoeE/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/922176610130591774.gif"
+        await ctx.message.edit(content=stfu)
+
+    @dortrox.command()
+    async def haha(self,ctx):
+        haha= "https://images-ext-1.discordapp.net/external/-E8GHUmIH0JSLtuLaEoq_5p_uTFaUsrLh3yDvctWFfc/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/853267260763537448.gif"
+        await ctx.message.edit(content=haha)
+
+    @dortrox.command()
+    async def hmm(self,ctx):
+        hmm= "https://images-ext-1.discordapp.net/external/PhxlrA9ThLiufpeV1YxwE_cRZEIRVVJj9AkbCM4qAcU/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/845306696436023306.png"
+        await ctx.message.edit(content=hmm)
+
+    @dortrox.command()
+    async def rich(self,ctx):
+        rich= "https://images-ext-2.discordapp.net/external/eOMUMwhWLLWDVxwJVLUd0zRL51HvoVhuWBghU0M9Znk/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/939554787345723443.png"
+        await ctx.message.edit(content=rich)
+
+    @dortrox.command()
+    async def callmom(self,ctx):
+        callmom= "https://images-ext-1.discordapp.net/external/pagMd2EGAACjCuGpM53O5lOp0OuU4YmHC1t5lXcCRR8/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/958983592422297600.png"
+        await ctx.message.edit(content=callmom)
+
+    @dortrox.command()
+    async def amen(self,ctx):
+        amen= "https://images-ext-2.discordapp.net/external/Fq9rG284c82jfeTsg43g1nTNBgvQhpUUbJdbOsnkYw8/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/915560131612258314.png"
+        await ctx.message.edit(content=amen)
+
+    @dortrox.command()
+    async def justwhy(self,ctx):
+        justwhy= "https://images-ext-1.discordapp.net/external/IXi5D-Cjh5SZCT9ld9s_QEiOmqHUIGhmqhUNMMSbW_8/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/787405149760520202.png"
+        await ctx.message.edit(content=justwhy)
+
+    @dortrox.command()
+    async def woah(self,ctx):
+        woah= "https://images-ext-2.discordapp.net/external/ijgdazePn6z5z92fG8P68i3THmW0gFGlf6RTqJGHUns/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/925673998770114560.png"
+        await ctx.message.edit(content=woah)
+
+    @dortrox.command()
+    async def ok(self,ctx):
+        ok= "https://images-ext-2.discordapp.net/external/4da3L306S6eXDJSJfdg1hSlKLKWLxzhIlalWb7miH8Y/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/815120912948920331.png"
+        await ctx.message.edit(content=ok)
+
+    @dortrox.command()
+    async def catc(self,ctx):
+        catc= "https://images-ext-2.discordapp.net/external/jo2cnQbfigN4-8ZYvx24z_7v6WbpIQ5DexrTYRh1uRg/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/889105569523310602.png"
+        await ctx.message.edit(content=catc)
+
+    @dortrox.command()
+    async def welp(self,ctx):
+        welp= "https://images-ext-1.discordapp.net/external/ZHt-qMkypmTMVW2WPTU7OVGcwvwpTpxaH-zb48RSly4/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/822333754269892658.png"
+        await ctx.message.edit(content=welp)
+
+    @dortrox.command()
+    async def hehe(self,ctx):
+        hehe= "https://images-ext-2.discordapp.net/external/WlrDXeXLEYo1wIQT5Ipv5ZMUSD8gV6g2_ko71zJ4W1Y/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/856753875376799754.png"
+        await ctx.message.edit(content=hehe)
+
+    @dortrox.command()
+    async def hee(self,ctx):
+        hee= "https://images-ext-1.discordapp.net/external/1LFKhCx2JFa2iBRHw4-xkLjI5__jHAQZIFTir9mIq6Q/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/927889493728591912.png"
+        await ctx.message.edit(content=hee)
+
+    @dortrox.command()
+    async def boutthat(self,ctx):
+        boutthat= "https://images-ext-1.discordapp.net/external/BJENkt_ZVqWPEAeq-cVVvrEcg-k4FXNm8jZ8Zds5bw8/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/935514054640947290.png"
+        await ctx.message.edit(content=boutthat)
+
+    @dortrox.command()
+    async def idc(self,ctx):
+        idc = "https://images-ext-2.discordapp.net/external/ug6dGvxjbYnevc8wA3IfhMZnAdUjj9UZdZ2APE_C56c/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/851368320149749770.png"
+        await ctx.message.edit(content=idc)
+
     @dortrox.command()
     async def danc(self, ctx):
         danc = 'https://images-ext-2.discordapp.net/external/poPP7Gv08VAxIs_v2xQHxcOme1vobWjPZUKg2AaXI4A/%3Fv%3D1%26size%3D40/https/cdn.discordapp.com/emojis/840794659206987797.gif'

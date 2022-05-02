@@ -1,7 +1,7 @@
 import asyncio, time, json
 from aiohttp import *
 from discord.ext import commands as dortrox
-fObj = open('config.json',)
+fObj = open('config.json')
 ogdata = json.load(fObj)
 token = ogdata['token']
 uagent = ogdata['uagent']
@@ -39,9 +39,6 @@ async def cd(channel):
         async with cs.delete(f'https://discord.com/api/v8/channels/{channel}') as r:
             if r.status == 200 or r.status == 201 or r.status == 204:
                 print(f'Deleted Channel {channel}')
-            elif r.status == 429:
-                print("nigg")
-                await time.sleep(3)
             else:
                 print(f'{r.status}')
 
@@ -69,9 +66,6 @@ async def cs(ctx):
         async with cs.post(f'https://discord.com/api/v8/guilds/{guild}/channels', json=await channelName()) as r:
             if r.status == 200 or r.status == 201 or r.status == 204:
                 print(f'Channel Spammed')
-            elif r.status == 429:
-                print("efew")
-                await time.sleep(3)
             else:
                 print(f'{r.status} Too many request/Not found')
 

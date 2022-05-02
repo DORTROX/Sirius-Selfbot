@@ -1,16 +1,20 @@
 import discord, os, json,requests
-from aiohttp import *
+from os import system,name
 from discord.ext import commands
 from discord.ext.commands import CommandNotFound
-from requests import head
 fObj = open('config.json')
 ogdata = json.load(fObj)
 deletes = ogdata['delete']
 tokenn = ogdata['token']
+
+
 # Check for token
 
 def tokus(tokn):
-  os.system('cls')
+  if name == 'nt':
+      _ = system('cls')
+  else:
+      _ = system('clear')
   headers = {'Content-Type': 'application/json', 'authorization': tokn}
   url = "https://discordapp.com/api/v6/users/@me/library"
   r = requests.get(url, headers=headers)
@@ -34,7 +38,6 @@ def tokus(tokn):
 
 token = tokus(tokenn)
 
-# Prefix Realtime
 
 async def pre(dortrox, message):
   fObj = open('config.json')
@@ -45,19 +48,19 @@ async def pre(dortrox, message):
 async def HookContent():
   fObj = open('config.json')
   ogdata = json.load(fObj)
-  webhook_content = ogdata['webhooks']['webhook_content']
+  webhook_content = ogdata['webhook_content']
   return webhook_content
 
 async def HookName():
   fObj = open('config.json')
   ogdata = json.load(fObj)
-  webhook_name = ogdata['webhooks']['webhook_name']
+  webhook_name = ogdata['webhook_name']
   return webhook_name
 
 async def Hook():
   fObj = open('config.json')
   ogdata = json.load(fObj)
-  webhooks = ogdata['webhooks']['webhook']
+  webhooks = ogdata['webhook']
   return webhooks
 
 intents = discord.Intents().all()
@@ -66,10 +69,10 @@ dortrox = commands.Bot(
     self_bot=True,
     help_command=None, 
     intents=intents, 
-                     )
+                    )
 
 Help = ["NUKE COMMANDS", "FUN COMMANDS", "ACTIVITIES COMMANDS", "MAIN COMMANDS"]
-Main = [f"purge: Delete messages from a channel  |  purge <amount here>", f"ping: Shows lantency  |  purge", f"webhook: Turn webhooks on & off  |  webhook <true/false>", f"activity: changes activity message  |  activity <message here>", f"nwebhook: Changes webhooks name  |  nwebhook <name here>", f"cwebhook: Changes webhooks content  |  nwebhook <content here>", f"rn : Changes roles name  |  rn <name here>", f"cn: Changes channels name  |  cn <name here>", f"prefix: Changes prefix  |  prefix <New prefix here>" ]
+Main = [f"purge: Delete messages from a channel  |  purge <amount here>", f"ping: Shows lantency  |  ping", f"hooks: Turn webhooks on & off  |  hooks", f"activityN: changes activity message  |  activity <message here>", f"hooksN: Changes webhooks name  |  hooksN <name here>", f"hooksC: Changes webhooks content  |  hooksC <content here>", f"roleN : Changes roles name  |  roleN <name here>", f"channelN: Changes channels name  |  channelN <name here>", f"prefix: Changes prefix  |  prefix <New prefix here>", f"guildN: Changes guild name  |  guildN <Name here>", f"ban: Turn ban On or Off  |  ban" ]
 Nuke = [f"nuke: Blow up the server for you  |  nuke" ]
 Activites = [f"stream: Change to streaming message and activity  |  stream <messsage here>", f"listen: Change to listening message and activity  |  listen <messsage here>", f"playing: Change to playing message and activity listen <message here>", f"watch: Change to watching message and activity  |  watch <message here>"]
 Fun = f"""
@@ -106,18 +109,20 @@ async def on_command_error(ctx, error):
 
 @dortrox.event
 async def on_ready():
-    os.system("cls")
-    await dortrox.change_presence(activity=discord.Streaming(name=ogdata['Activity_name'], url="https://www.twitch.tv/dortrox"))
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
     print(f"""
                                     
-                                   ▄████████  ▄█     ▄████████  ▄█  ███    █▄     ▄████████ 
+                                  ▄████████  ▄█     ▄████████  ▄█  ███    █▄     ▄████████ 
                                   ███    ███ ███    ███    ███ ███  ███    ███   ███    ███ 
                                   ███    █▀  ███▌   ███    ███ ███▌ ███    ███   ███    █▀  
                                   ███        ███▌  ▄███▄▄▄▄██▀ ███▌ ███    ███   ███        
                                 ▀███████████ ███▌ ▀▀███▀▀▀▀▀   ███▌ ███    ███ ▀███████████ 
-                                         ███ ███  ▀███████████ ███  ███    ███          ███ 
-                                   ▄█    ███ ███    ███    ███ ███  ███    ███    ▄█    ███ 
-                                 ▄████████▀  █▀     ███    ███ █▀   ████████▀   ▄████████▀  
+                                        ███ ███  ▀███████████ ███  ███    ███          ███ 
+                                  ▄█    ███ ███    ███    ███ ███  ███    ███    ▄█    ███ 
+                                ▄████████▀  █▀     ███    ███ █▀   ████████▀   ▄████████▀  
                                                     ███    ███                              
                                             Manipulating: {dortrox.user}  
                                                   Prefix: {ogdata['prefix']}                     
@@ -171,7 +176,7 @@ async def help(ctx, content=None):
     for i in Activites:
       h += f"""```diff
 + {i}
- ```\n"""
+```\n"""
   else:
     h += """```diff
 - No Result

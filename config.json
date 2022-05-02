@@ -2,7 +2,7 @@
     "Activity_name": "Serving DORTROX",
     "delete": 10,
     "guild": {
-        "ban": "True",
+        "ban": "False",
         "channel_json": {
             "name": "heil-dortrox",
             "type": 0
@@ -15,9 +15,7 @@
     "prefix": "$",
     "token": "",
     "uagent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246",
-    "webhooks": {
-        "webhook": "False",
-        "webhook_content": "@everyon Ruined By Dortrox",
-        "webhook_name": "Dortrox"
-    }
+    "webhook": "True",
+    "webhook_content": "@everyone A selfbot created by dortrox",
+    "webhook_name": "Dortrox"
 }

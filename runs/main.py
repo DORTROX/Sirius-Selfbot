@@ -119,11 +119,11 @@ class main(dortrox.Cog):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                if json_data['webhooks']['webhook'] == 'True':
+                if json_data['webhook'] == 'True':
                     content = 'False'
-                elif json_data['webhooks']['webhook'] == 'False':
+                elif json_data['webhook'] == 'False':
                     content = 'True'
-                json_data['webhooks']['webhook'] = content
+                json_data['webhook'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
@@ -138,7 +138,7 @@ class main(dortrox.Cog):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                json_data['webhooks']['webhook_name'] = content
+                json_data['webhook_name'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
@@ -152,7 +152,7 @@ class main(dortrox.Cog):
         try:
             with open('config.json', 'r') as f:
                 json_data = json.load(f)
-                json_data['webhooks']['webhook_content'] = content
+                json_data['webhook_content'] = content
                 f.close()
             with open('config.json', 'w') as f:
                 f.write(json.dumps(json_data, indent = 4, sort_keys=True))
